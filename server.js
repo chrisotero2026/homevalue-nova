@@ -23,9 +23,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/auth',  authRoutes);
 app.use('/api/leads', leadsRoutes);
 
-// ─── Health check ─────────────────────────────────────────────────────────────
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+// ─── Health check (includes DB ping) ────────────────────────────────────────
+app.get('/health', async (req, res) => {
+  let dbStatus = 'unknown';
+  let dbError  = null;
+  try {
+    await pool.query('SELECT 1');
+    dbStatus = 'ok';
+  } catch (err) {
+    dbStatus = 'error';
+    dbError  = err.message;
+  }
+  res.json({
+    status:    dbStatus === 'ok' ? 'ok' : 'degraded',
+    db:        dbStatus,
+    dbError:   dbError,
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // ─── SPA fallback: serve index.html for any unmatched route ──────────────────
