@@ -11,14 +11,36 @@ const VALID_ZIPS = ['22554', '22191', '22192', '22193', '22401', '22405', '22406
 const VALID_STATUSES = ['New', 'Contacted', 'Appointment', 'Closed'];
 
 /**
- * Send an SMS notification to the agent via Twilio.
+ * Send an SMS notification to the correct agent phone number based on lead language.
+ * - lang === 'es'  → AGENT_PHONE_SPANISH
+ * - lang === 'en' (or anything else) → AGENT_PHONE_ENGLISH
+ * Falls back to AGENT_PHONE_NUMBER if the language-specific variable is not set.
  * Gracefully logs errors without crashing the request.
  */
 async function sendAgentSMS(lead) {
-  const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_NUMBER, AGENT_PHONE_NUMBER, DASHBOARD_URL } = process.env;
+  const {
+    TWILIO_ACCOUNT_SID,
+    TWILIO_AUTH_TOKEN,
+    TWILIO_FROM_NUMBER,
+    AGENT_PHONE_ENGLISH,
+    AGENT_PHONE_SPANISH,
+    AGENT_PHONE_NUMBER,  // legacy fallback
+    DASHBOARD_URL,
+  } = process.env;
 
-  if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN || !TWILIO_FROM_NUMBER || !AGENT_PHONE_NUMBER) {
+  if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN || !TWILIO_FROM_NUMBER) {
     console.warn('Twilio environment variables not fully configured — SMS skipped.');
+    return;
+  }
+
+  // Determine recipient based on the language the lead submitted in
+  const isSpanish = (lead.lang || '').toLowerCase() === 'es';
+  const toNumber = isSpanish
+    ? (AGENT_PHONE_SPANISH || AGENT_PHONE_NUMBER)
+    : (AGENT_PHONE_ENGLISH || AGENT_PHONE_NUMBER);
+
+  if (!toNumber) {
+    console.warn('No agent phone number configured — SMS skipped.');
     return;
   }
 
@@ -37,16 +59,17 @@ async function sendAgentSMS(lead) {
       `Score: ${lead.score} ${scoreEmoji}`,
       `Location: ${lead.city}, ${lead.zip_code}`,
       `Phone: ${lead.phone}`,
+      `Lang: ${isSpanish ? 'ES 🇪🇸' : 'EN 🇺🇸'}`,
       `Dashboard: ${DASHBOARD_URL || 'N/A'}`,
     ].join('\n');
 
     await twilio.messages.create({
       body,
       from: TWILIO_FROM_NUMBER,
-      to:   AGENT_PHONE_NUMBER,
+      to:   toNumber,
     });
 
-    console.log(`SMS sent to agent for lead: ${lead.name}`);
+    console.log(`SMS sent to ${isSpanish ? 'Spanish' : 'English'} agent (${toNumber}) for lead: ${lead.name}`);
   } catch (err) {
     console.error('Twilio SMS error:', err.message);
   }
@@ -55,12 +78,14 @@ async function sendAgentSMS(lead) {
 /**
  * POST /api/leads
  * No auth required.
- * Body: { name, phone, email, address, city, zip_code, value_low, value_high, q1, q2, q3, q4, score }
+ * Body: { name, phone, email, address, city, zip_code, value_low, value_high, q1, q2, q3, q4, score, lang }
+ * lang: 'en' | 'es'  — determines which agent phone receives the SMS
  */
 router.post('/', async (req, res) => {
   const {
     name, phone, email, address, city, zip_code,
     value_low, value_high, q1, q2, q3, q4, score,
+    lang,  // 'en' or 'es'
   } = req.body;
 
   // Required field validation
@@ -73,6 +98,9 @@ router.post('/', async (req, res) => {
   if (!VALID_ZIPS.includes(zip)) {
     return res.status(400).json({ success: false, error: 'ZIP code is not in the service area.' });
   }
+
+  // Normalise language flag
+  const language = (lang || 'en').toLowerCase() === 'es' ? 'es' : 'en';
 
   try {
     const result = await pool.query(
@@ -99,8 +127,8 @@ router.post('/', async (req, res) => {
 
     const savedLead = result.rows[0];
 
-    // Fire-and-forget SMS
-    sendAgentSMS({ name, phone, city, zip_code: zip, score: Number(score) });
+    // Fire-and-forget SMS — pass language so the correct agent number is used
+    sendAgentSMS({ name, phone, city, zip_code: zip, score: Number(score), lang: language });
 
     return res.status(201).json({ success: true, id: savedLead.id, score: savedLead.score });
   } catch (err) {

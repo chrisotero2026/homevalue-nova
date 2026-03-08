@@ -63,7 +63,9 @@ Copy `.env.example` to `.env` for local development. On Railway, set these in th
 | `TWILIO_ACCOUNT_SID`  | Twilio account SID                               |
 | `TWILIO_AUTH_TOKEN`   | Twilio auth token                                |
 | `TWILIO_FROM_NUMBER`  | Twilio phone number (E.164 format)               |
-| `AGENT_PHONE_NUMBER`  | Agent's phone number for SMS alerts              |
+| `AGENT_PHONE_ENGLISH` | Agent phone for English-language leads (SMS)     |
+| `AGENT_PHONE_SPANISH` | Agent phone for Spanish-language leads (SMS)     |
+| `AGENT_PHONE_NUMBER`  | Legacy fallback if language-specific not set     |
 | `DASHBOARD_URL`       | Public URL of the deployed app                   |
 | `PORT`                | Server port (Railway sets this automatically)    |
 

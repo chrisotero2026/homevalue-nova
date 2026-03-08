@@ -1485,6 +1485,7 @@ async function submitQuestions() {
         q3:         answers.q3,
         q4:         answers.q4,
         score:      score,
+        lang:       lang,  // 'en' or 'es' — routes SMS to correct agent phone
       }),
     });
     const data = await response.json();
