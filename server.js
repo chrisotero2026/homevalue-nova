@@ -25,9 +25,11 @@ app.use('/api/leads', leadsRoutes);
 
 // ─── Health check (includes DB ping) ────────────────────────────────────────
 app.get('/health', async (req, res) => {
+  const dbUrl = process.env.DATABASE_URL;
   let dbStatus = 'unknown';
   let dbError  = null;
   try {
+    if (!dbUrl) throw new Error('DATABASE_URL environment variable is not set');
     await pool.query('SELECT 1');
     dbStatus = 'ok';
   } catch (err) {
@@ -35,10 +37,11 @@ app.get('/health', async (req, res) => {
     dbError  = err.message;
   }
   res.json({
-    status:    dbStatus === 'ok' ? 'ok' : 'degraded',
-    db:        dbStatus,
-    dbError:   dbError,
-    timestamp: new Date().toISOString(),
+    status:       dbStatus === 'ok' ? 'ok' : 'degraded',
+    db:           dbStatus,
+    dbError:      dbError,
+    dbUrlPresent: !!dbUrl,
+    timestamp:    new Date().toISOString(),
   });
 });
 
