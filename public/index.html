@@ -963,7 +963,7 @@
       <input type="password" class="field-input" id="login-pass-input" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
     </div>
     <button class="btn-primary" onclick="doLogin()" data-i18n="login_btn">Access Dashboard →</button>
-    <p class="form-note" style="margin-top:16px" data-i18n="login_hint">Demo: agent@dlcr.com / nova2024</p>
+    <p class="form-note" style="margin-top:16px" data-i18n="login_hint">Demo: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f1e181a110b3f1b131c0d511c1012">[email&#160;protected]</a> / nova2024</p>
   </div>
 </div>
 
@@ -1092,7 +1092,7 @@
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ═══════════════════════════════════════════
 // TRANSLATIONS
 // ═══════════════════════════════════════════
@@ -1111,8 +1111,8 @@ const T = {
     lbl_phone: 'Phone Number',
     lbl_email: 'Email',
     btn_submit: 'Get My Free Estimate →',
-    form_note: 'We only serve Northern Virginia. Your info is private and secure.',
-    area_denied: '⚠ We\'re not yet serving this area. We currently cover Stafford, Woodbridge, Fredericksburg, Dumfries, and Manassas, VA.',
+    form_note: 'We serve all of Northern Virginia and Maryland. Your info is private and secure.',
+    area_denied: '⚠ We\'re not yet serving this area. We currently cover all of Northern Virginia and Maryland.',
     est_tag: 'Your Estimate Is Ready',
     est_label: 'Estimated Market Value',
     est_caveat: 'Based on recent comparable sales in your area. A licensed agent can provide a more precise valuation.',
@@ -1190,8 +1190,8 @@ const T = {
     lbl_phone: 'Número de Teléfono',
     lbl_email: 'Correo Electrónico',
     btn_submit: 'Obtener Mi Estimación Gratis →',
-    form_note: 'Solo servimos el norte de Virginia. Su información es privada y segura.',
-    area_denied: '⚠ Aún no cubrimos esta área. Actualmente servimos Stafford, Woodbridge, Fredericksburg, Dumfries y Manassas, VA.',
+    form_note: 'Servimos todo el norte de Virginia y Maryland. Su información es privada y segura.',
+    area_denied: '⚠ Aún no cubrimos esta área. Actualmente servimos todo el norte de Virginia y Maryland.',
     est_tag: 'Su Estimación Está Lista',
     est_label: 'Valor de Mercado Estimado',
     est_caveat: 'Basado en ventas comparables recientes en su área. Un agente autorizado puede proveer una valoración más precisa.',
@@ -1260,8 +1260,84 @@ const T = {
 // ═══════════════════════════════════════════
 // CONSTANTS
 // ═══════════════════════════════════════════
-const VALID_ZIPS = ['22554','22191','22192','22193','22401','22405','22406'];
-const VALID_CITIES = ['stafford','woodbridge','fredericksburg','dumfries','manassas'];
+const VALID_ZIPS = [
+  // Stafford
+  '22554','22553','22555','22556',
+  // Woodbridge / Dale City / Lake Ridge
+  '22191','22192','22193','22194','22195',
+  // Fredericksburg
+  '22401','22402','22403','22404','22405','22406','22407','22408',
+  // Dumfries / Triangle / Quantico
+  '22026','22172','22134',
+  // Manassas / Manassas Park
+  '20108','20109','20110','20111','20112','20113',
+  // Warrenton / Fauquier
+  '20186','20187','20188',
+  // Gainesville / Haymarket / Bristow
+  '20155','20169','20136',
+  // Centreville / Chantilly / Herndon
+  '20120','20121','20151','20152','20170','20171',
+  // Reston / Great Falls
+  '20190','20191','20194','22066',
+  // McLean / Vienna / Tysons
+  '22101','22102','22180','22181','22182',
+  // Fairfax / Burke / Springfield
+  '22030','22031','22032','22033','22015','22150','22151','22152','22153',
+  // Alexandria
+  '22301','22302','22303','22304','22305','22306','22307','22308','22309','22310','22311','22312','22314','22315',
+  // Arlington
+  '22201','22202','22203','22204','22205','22206','22207','22209','22213','22214',
+  // Loudoun / Ashburn / Leesburg / Sterling
+  '20147','20148','20164','20165','20166','20175','20176','20132','20141','20158',
+  // Prince William
+  '22025','22026','22027',
+  // Culpeper
+  '22701','22702',
+  // Spotsylvania
+  '22551','22552','22553',
+  // Maryland - Montgomery County
+  '20814','20815','20816','20817','20818','20832','20833','20837','20838','20839',
+  '20841','20842','20850','20851','20852','20853','20854','20855','20860','20861',
+  '20862','20866','20868','20871','20872','20874','20875','20876','20877','20878',
+  '20879','20880','20882','20883','20884','20885','20886','20889','20892','20895',
+  '20896','20897','20898','20899','20901','20902','20903','20904','20905','20906',
+  '20910','20912',
+  // Maryland - Prince George's County
+  '20601','20602','20603','20607','20608','20613','20623','20706','20707','20708',
+  '20709','20710','20712','20715','20716','20717','20718','20719','20720','20721',
+  '20722','20735','20737','20740','20741','20742','20743','20744','20745','20746',
+  '20747','20748','20762','20769','20770','20771','20772','20773','20774','20781',
+  '20782','20783','20784','20785',
+  // Maryland - Frederick County
+  '21701','21702','21703','21704','21710','21754','21755','21757','21758','21771',
+  '21774','21776','21787','21788',
+  // Maryland - Howard County
+  '21042','21043','21044','21045','21046','21075','21076','21163',
+  // Maryland - Baltimore suburbs
+  '21201','21202','21204','21205','21206','21207','21208','21209','21210','21211',
+  '21212','21213','21214','21215','21216','21217','21218','21219','21220','21221',
+  '21222','21223','21224','21225','21226','21227','21228','21229','21230','21231'
+];
+
+const VALID_CITIES = [
+  // Northern Virginia
+  'stafford','woodbridge','fredericksburg','dumfries','manassas','manassas park',
+  'warrenton','gainesville','haymarket','bristow','centreville','chantilly',
+  'herndon','reston','great falls','mclean','vienna','tysons','fairfax',
+  'burke','springfield','alexandria','arlington','ashburn','leesburg','sterling',
+  'loudoun','culpeper','spotsylvania','triangle','quantico','dale city',
+  'lake ridge','prince william','annandale','falls church','merrifield',
+  'lorton','occoquan','woodbridge','montclair','independent hill',
+  // Maryland
+  'bethesda','chevy chase','rockville','gaithersburg','germantown','silver spring',
+  'takoma park','hyattsville','college park','greenbelt','bowie','laurel',
+  'upper marlboro','oxon hill','temple hills','suitland','district heights',
+  'fort washington','clinton','waldorf','la plata','fredericksburg',
+  'annapolis','glen burnie','columbia','ellicott city','catonsville',
+  'towson','pikesville','owings mills','reisterstown','westminster',
+  'frederick','hagerstown','glenwood','clarksburg','damascus','olney',
+  'brookeville','boyds','darnestown','poolesville','dickerson','barnesville'
+];
 
 const ZIP_VALUE_MAP = {
   '22554': [520000, 680000], // Stafford
@@ -1287,7 +1363,6 @@ let activeLead = null;
 let authToken = null; // JWT token set after successful login
 
 // Leads are loaded from the database via GET /api/leads after login.
-// The array below starts empty; demo data is no longer hard-coded.
 leads = [];
 
 // ═══════════════════════════════════════════
@@ -1490,7 +1565,7 @@ async function submitQuestions() {
     });
     const data = await response.json();
     if (data.success) {
-      // Use the server-assigned id for the local leads array
+      // Add to local leads array using server-assigned id
       const newLead = {
         id:         data.id,
         name:       currentLead.name,
@@ -1499,7 +1574,6 @@ async function submitQuestions() {
         address:    currentLead.address,
         city:       currentLead.city,
         zip:        currentLead.zip,
-        zip_code:   currentLead.zip,
         value_low:  currentLead.value_low,
         value_high: currentLead.value_high,
         q1: answers.q1, q2: answers.q2, q3: answers.q3, q4: answers.q4,
@@ -1509,13 +1583,13 @@ async function submitQuestions() {
       };
       leads.unshift(newLead);
     } else {
-      console.warn('Lead save warning:', data.error);
+      console.error('API error saving lead:', data.error);
     }
   } catch (err) {
-    console.error('Failed to save lead:', err);
+    console.error('Network error saving lead:', err);
   }
 
-  // Show score
+  // Show score page regardless of API result
   const scoreEl = document.getElementById('ty-score');
   scoreEl.textContent = score;
   scoreEl.className = 'score-number ' + cls;
@@ -1553,19 +1627,19 @@ async function doLogin() {
       body: JSON.stringify({ email, password: pass }),
     });
     const data = await response.json();
-
     if (data.success && data.token) {
       authToken = data.token;
       err.style.display = 'none';
+      await renderTable(); // fetch leads from DB
       showPage('page-dashboard');
-      await renderTable(); // fetch leads from API
+      updateStats();
     } else {
       err.style.display = 'block';
       err.textContent = t('login_err');
     }
   } catch (e) {
     err.style.display = 'block';
-    err.textContent = t('login_err');
+    err.textContent = 'Connection error. Please try again.';
     console.error('Login error:', e);
   }
 }
@@ -1617,7 +1691,7 @@ function getTimelineLabel(val) {
 }
 
 async function renderTable() {
-  // Fetch leads from API if we have a token
+  // Fetch fresh leads from the API if we have a token
   if (authToken) {
     try {
       const response = await fetch('/api/leads', {
@@ -1625,31 +1699,25 @@ async function renderTable() {
       });
       const data = await response.json();
       if (data.success && Array.isArray(data.leads)) {
-        // Normalise zip field for compatibility with openModal
-        leads = data.leads.map(l => ({
-          ...l,
-          zip: l.zip_code,
-          date: l.date || (l.created_at ? l.created_at.split('T')[0] : ''),
-        }));
+        // Normalise zip_code -> zip for frontend compatibility
+        leads = data.leads.map(l => ({ ...l, zip: l.zip_code || l.zip }));
       }
     } catch (err) {
-      console.error('Failed to fetch leads:', err);
+      console.error('renderTable fetch error:', err);
     }
   }
 
   updateStats();
-  const scoreFilter  = document.getElementById('filter-score').value;
+  const scoreFilter = document.getElementById('filter-score').value;
   const statusFilter = document.getElementById('filter-status').value;
-  const search       = document.getElementById('search-input').value.toLowerCase();
+  const search = document.getElementById('search-input').value.toLowerCase();
 
   let filtered = leads.filter(l => {
-    if (scoreFilter === 'hot'    && l.score < 71) return false;
+    if (scoreFilter === 'hot' && l.score < 71) return false;
     if (scoreFilter === 'medium' && (l.score < 41 || l.score >= 71)) return false;
-    if (scoreFilter === 'low'    && l.score >= 41) return false;
-    if (statusFilter !== 'all'  && l.status !== statusFilter) return false;
-    if (search && !l.name.toLowerCase().includes(search) &&
-        !l.address.toLowerCase().includes(search) &&
-        !l.city.toLowerCase().includes(search)) return false;
+    if (scoreFilter === 'low' && l.score >= 41) return false;
+    if (statusFilter !== 'all' && l.status !== statusFilter) return false;
+    if (search && !l.name.toLowerCase().includes(search) && !l.address.toLowerCase().includes(search) && !l.city.toLowerCase().includes(search)) return false;
     return true;
   });
 
@@ -1749,7 +1817,6 @@ async function updateStatus() {
     });
     const data = await response.json();
     if (data.success) {
-      // Update local cache
       const lead = leads.find(l => l.id === activeLead.id);
       if (lead) lead.status = newStatus;
       activeLead.status = newStatus;
@@ -1777,13 +1844,4 @@ function showToast(msg) {
 
 // ═══════════════════════════════════════════
 // INIT
-// ═══════════════════════════════════════════
-applyTranslations();
-
-// Demo: expose dashboard link
-document.querySelector('.hero-eyebrow').addEventListener('dblclick', () => {
-  showPage('page-login');
-});
-</script>
-</body>
-</html>
+// ══════════════════════════════�
