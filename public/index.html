@@ -846,6 +846,12 @@
 
         <button class="btn-primary" onclick="submitLead()" id="submit-btn" data-i18n="btn_submit">Get My Free Estimate →</button>
         <p class="form-note" data-i18n="form_note">We serve Northern Virginia &amp; Maryland. Your info is private and secure.</p>
+
+        <!-- BUYER CTA -->
+        <div style="margin-top:20px; padding:18px; background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); border-radius:12px; text-align:center;">
+          <p id="buyer-cta-text" style="font-size:0.88rem; color:#bbb; margin-bottom:12px; line-height:1.5;">Are you also looking to buy a home?</p>
+          <a href="https://dlcrhb.com" target="_blank" id="btn-buyer" style="display:inline-block; background:transparent; border:1px solid var(--gold); color:var(--gold); border-radius:8px; padding:10px 20px; font-family:'DM Sans',sans-serif; font-size:0.88rem; font-weight:500; cursor:pointer; transition:all 0.2s; text-decoration:none;">Yes, I want to find my dream home →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1179,6 +1185,8 @@ const T = {
     m_status: 'Update Status:',
     status_updated: 'Status updated successfully.',
     val_fill: 'Please fill in all required fields.',
+    buyer_cta: 'Are you also looking to buy a home?',
+    btn_buyer: 'Yes, I want to find my dream home →',
     val_zip: 'Please enter a valid 5-digit ZIP code.',
     val_phone: 'Please enter a valid phone number.',
     lead_saved: 'Lead received! Connecting you with an agent.',
@@ -1388,6 +1396,10 @@ function setLang(l) {
   lang = l;
   document.getElementById('btn-en').classList.toggle('active', l === 'en');
   document.getElementById('btn-es').classList.toggle('active', l === 'es');
+  if(document.getElementById('buyer-cta-text')) {
+    document.getElementById('buyer-cta-text').textContent = t('buyer_cta');
+    document.getElementById('btn-buyer').textContent = t('btn_buyer');
+  }
   document.documentElement.lang = l;
   document.documentElement.lang = l;
   applyTranslations();
