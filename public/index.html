@@ -1672,7 +1672,22 @@ function getTimelineLabel(val) {
   return t(map[val] || val);
 }
 
-function renderTable() {
+async function renderTable() {
+  // Fetch fresh leads from the API if we have a token
+  if (authToken) {
+    try {
+      const res = await fetch('/api/leads', {
+        headers: { 'Authorization': 'Bearer ' + authToken },
+      });
+      const data = await res.json();
+      if (data.success && Array.isArray(data.leads)) {
+        leads = data.leads.map(l => ({ ...l, zip: l.zip_code || l.zip }));
+      }
+    } catch (err) {
+      console.error('renderTable fetch error:', err);
+    }
+  }
+
   updateStats();
   const scoreFilter = document.getElementById('filter-score').value;
   const statusFilter = document.getElementById('filter-status').value;
@@ -1799,4 +1814,9 @@ function showToast(msg) {
 
 // ═══════════════════════════════════════════
 // INIT
-// ══════════════════════════════�
+// ═══════════════════════════════════════════
+setLang('en');
+showPage('page-home');
+</script>
+</body>
+</html>
