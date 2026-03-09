@@ -76,6 +76,51 @@ async function sendAgentSMS(lead) {
 }
 
 /**
+ * Send a confirmation SMS to the client after they submit the form.
+ * Message is bilingual — English or Spanish based on lead.lang.
+ */
+async function sendClientSMS(lead) {
+  const {
+    TWILIO_ACCOUNT_SID,
+    TWILIO_AUTH_TOKEN,
+    TWILIO_FROM_NUMBER,
+  } = process.env;
+
+  if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN || !TWILIO_FROM_NUMBER) {
+    console.warn('Twilio not configured — client SMS skipped.');
+    return;
+  }
+
+  if (!lead.phone) {
+    console.warn('No client phone number — client SMS skipped.');
+    return;
+  }
+
+  // Normalise phone: strip non-digits and add +1 if needed
+  let toNumber = String(lead.phone).replace(/\D/g, '');
+  if (toNumber.length === 10) toNumber = '1' + toNumber;
+  toNumber = '+' + toNumber;
+
+  const isSpanish = (lead.lang || '').toLowerCase() === 'es';
+
+  const body = isSpanish
+    ? `Hola ${lead.name}, gracias por su interés en De Las Casas Realty. Un agente se comunicará con usted a la brevedad posible. — Denise Rodriguez, 571-318-0078`
+    : `Hi ${lead.name}, thank you for your interest in De Las Casas Realty. An agent will reach out to you shortly. — Denise Rodriguez, 571-318-0078`;
+
+  try {
+    const twilio = require('twilio')(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+    await twilio.messages.create({
+      body,
+      from: TWILIO_FROM_NUMBER,
+      to:   toNumber,
+    });
+    console.log(`Client confirmation SMS sent to ${toNumber} (${isSpanish ? 'ES' : 'EN'})`);
+  } catch (err) {
+    console.error('Twilio client SMS error:', err.message);
+  }
+}
+
+/**
  * POST /api/leads
  * No auth required.
  * Body: { name, phone, email, address, city, zip_code, value_low, value_high, q1, q2, q3, q4, score, lang }
@@ -127,8 +172,11 @@ router.post('/', async (req, res) => {
 
     const savedLead = result.rows[0];
 
-    // Fire-and-forget SMS — pass language so the correct agent number is used
+    // Fire-and-forget SMS to agent — routes to English or Spanish agent phone
     sendAgentSMS({ name, phone, city, zip_code: zip, score: Number(score), lang: language });
+
+    // Fire-and-forget confirmation SMS to the client
+    sendClientSMS({ name, phone, lang: language });
 
     return res.status(201).json({ success: true, id: savedLead.id, score: savedLead.score });
   } catch (err) {
