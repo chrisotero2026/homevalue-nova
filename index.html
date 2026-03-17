@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DLCR Home Value — Sell Your Home or Get a Free Valuation in Northern Virginia</title>
+  <meta name="description" content="Find out what your home is worth or get a fast cash offer in Warrenton, Manassas, Haymarket, Gainesville & surrounding Virginia cities. DLCR Real Estate & Loans.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dlcrhv.com/">
+
+  <!-- OG -->
+  <meta property="og:title" content="DLCR Home Value — Northern Virginia Real Estate">
+  <meta property="og:description" content="Free home valuations and fast cash offers in Northern Virginia. Serving Warrenton, Manassas, Haymarket, Gainesville and more.">
+  <meta property="og:url" content="https://dlcrhv.com/">
+  <meta property="og:type" content="website">
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"RealEstateAgent",
+    "name":"DLCR Real Estate & Loans",
+    "url":"https://dlcrhv.com",
+    "telephone":"+15714448780",
+    "areaServed":["Warrenton VA","Manassas VA","Haymarket VA","Gainesville VA","Bristow VA","Catlett VA","Bull Run VA"],
+    "sameAs":["https://dlcr.replit.app"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:   #0c1a2e;
+      --navy2:  #142238;
+      --gold:   #c6902a;
+      --gold2:  #e8b84b;
+      --gold3:  #f5d07a;
+      --cream:  #faf7f2;
+      --cream2: #f2ede3;
+      --white:  #ffffff;
+      --text:   #1a2535;
+      --muted:  #6b7a8d;
+      --border: #ddd5c5;
+      --red:    #c0392b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--gold);
+      color: var(--navy);
+      text-align: center;
+      padding: 8px 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .topbar a { color: var(--navy); text-decoration: underline; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--navy);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      height: 68px;
+      position: sticky; top: 0; z-index: 200;
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--gold2);
+      letter-spacing: 1px;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .logo-sub {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 400;
+      color: #7a8fa8;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .nav-links { display: flex; gap: 8px; align-items: center; }
+    .nav-links a {
+      color: #a0b0c4;
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 8px 14px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .nav-cta {
+      background: var(--gold) !important;
+      color: var(--navy) !important;
+      font-weight: 600 !important;
+      padding: 9px 20px !important;
+    }
+    .nav-cta:hover { background: var(--gold2) !important; }
+
+    /* mobile nav */
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--gold2); margin: 5px 0; transition: all 0.3s; }
+    @media(max-width:700px){
+      nav { padding: 0 20px; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: var(--navy2); flex-direction: column; padding: 12px 0 20px; gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 24px; border-radius: 0; width: 100%; }
+      .hamburger { display: block; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(160deg, var(--navy) 0%, #1a2e50 55%, #0e1e38 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 60px 40px;
+    }
+    .hero-bg-text {
+      position: absolute;
+      bottom: -40px; right: -20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28vw;
+      font-weight: 700;
+      color: rgba(255,255,255,0.025);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .hero-grid {
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 460px;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+    }
+    @media(max-width:900px){ .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .hero h1 .accent { color: var(--gold2); }
+    .hero .hero-desc {
+      color: #8da0b8;
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 15px 32px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 4px 24px rgba(200,146,42,0.35);
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,146,42,0.45); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8);
+      padding: 14px 28px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold2); color: var(--gold2); }
+
+    /* ── HERO CARD ── */
+    .hero-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.4);
+    }
+    .hero-card-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .tab-btn {
+      padding: 16px;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.2s;
+    }
+    .tab-btn.active { background: var(--navy); color: var(--gold2); }
+    .tab-btn:not(.active) { background: var(--cream2); color: var(--muted); }
+    .hero-card-body { padding: 28px 28px 24px; }
+    .hero-card-body .tab-panel { display: none; }
+    .hero-card-body .tab-panel.active { display: block; }
+
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--navy); margin-bottom: 5px; }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1.5px solid var(--border);
+      border-radius: 3px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--gold); background: var(--white); }
+    .btn-submit {
+      width: 100%;
+      padding: 13px;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: 3px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: all 0.2s;
+    }
+    .btn-submit:hover { background: var(--gold2); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-note { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 10px; }
+    .success-msg { display: none; background: #d4edda; color: #155724; border-radius: 4px; padding: 14px; text-align: center; font-size: 0.9rem; margin-top: 10px; }
+    .error-msg { display: none; background: #f8d7da; color: var(--red); border-radius: 4px; padding: 10px; font-size: 0.82rem; margin-top: 8px; }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; font-weight: 500; color: var(--text); }
+    .trust-icon { font-size: 1.1rem; }
+
+    /* ── SECTION TITLES ── */
+    .section { padding: 80px 40px; }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+    .section-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--navy); line-height: 1.15; margin-bottom: 16px; }
+    .section-subtitle { color: var(--muted); font-size: 1rem; max-width: 580px; font-weight: 300; }
+
+    /* ── CITIES GRID ── */
+    .cities { background: var(--navy); }
+    .cities .section-title, .cities .section-eyebrow { color: var(--gold2) !important; }
+    .cities .section-subtitle { color: #8da0b8 !important; }
+    .cities-header { margin-bottom: 48px; }
+    .cities-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2px; }
+    .city-card {
+      background: rgba(255,255,255,0.04);
+      padding: 28px 28px 24px;
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .city-card::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .city-card:hover { background: rgba(255,255,255,0.07); }
+    .city-card:hover::before { transform: scaleX(1); }
+    .city-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .city-county { font-size: 0.75rem; color: #7a8fa8; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+    .city-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .city-link {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .city-link.sell { background: rgba(200,146,42,0.15); color: var(--gold2); border: 1px solid rgba(200,146,42,0.3); }
+    .city-link.sell:hover { background: var(--gold); color: var(--navy); }
+    .city-link.value { background: rgba(255,255,255,0.06); color: #a0b4cc; border: 1px solid rgba(255,255,255,0.1); }
+    .city-link.value:hover { background: rgba(255,255,255,0.12); color: var(--white); }
+    .city-link.es { background: transparent; color: #5a7a9a; border: 1px solid rgba(255,255,255,0.06); }
+    .city-link.es:hover { color: #8da0b8; border-color: rgba(255,255,255,0.12); }
+
+    /* ── HOW IT WORKS ── */
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 52px; }
+    @media(max-width:700px){ .how-grid { grid-template-columns: 1fr; } }
+    .how-step { position: relative; padding-left: 20px; }
+    .how-step::before { content: ''; position: absolute; left: 0; top: 8px; bottom: -32px; width: 1px; background: linear-gradient(to bottom, var(--gold), transparent); }
+    .how-step:last-child::before { display: none; }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; opacity: 0.6; }
+    .how-step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; color: var(--navy); }
+    .how-step p { color: var(--muted); font-size: 0.9rem; }
+
+    /* ── WHY DLCR ── */
+    .why-section { background: var(--cream2); }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 52px; }
+    @media(max-width:800px){ .why-grid { grid-template-columns: 1fr; } }
+    .why-list { list-style: none; }
+    .why-list li { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .why-list li:last-child { border-bottom: none; }
+    .why-icon { width: 40px; height: 40px; background: var(--navy); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .why-list li h4 { font-weight: 600; font-size: 0.95rem; margin-bottom: 3px; }
+    .why-list li p { font-size: 0.87rem; color: var(--muted); }
+    .why-stat-box {
+      background: var(--navy);
+      border-radius: 6px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--gold2); line-height: 1; }
+    .stat-label { font-size: 0.8rem; color: #7a8fa8; margin-top: 6px; }
+    .stat-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); grid-column: 1 / -1; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 52px; }
+    @media(max-width:750px){ .testimonials-grid { grid-template-columns: 1fr; } }
+    .testimonial {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .testimonial::before {
+      content: '"';
+      position: absolute; top: 12px; right: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      color: var(--gold3);
+      line-height: 1;
+    }
+    .testimonial p { font-size: 0.92rem; color: var(--text); line-height: 1.7; margin-bottom: 16px; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: var(--gold2); flex-shrink: 0; }
+    .author-name { font-weight: 600; font-size: 0.88rem; }
+    .author-city { font-size: 0.77rem; color: var(--muted); }
+    .stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 10px; letter-spacing: 2px; }
+
+    /* ── LANGUAGES BANNER ── */
+    .lang-banner {
+      background: var(--gold);
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .lang-banner p { font-weight: 600; color: var(--navy); font-size: 1rem; }
+    .lang-banner a {
+      background: var(--navy);
+      color: var(--gold2);
+      padding: 10px 24px;
+      border-radius: 3px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .lang-banner a:hover { background: #1a2e50; }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: var(--navy);
+      text-align: center;
+      padding: 90px 40px;
+    }
+    .cta-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4vw,3rem); font-weight: 700; color: var(--white); margin-bottom: 16px; }
+    .cta-section p { color: #8da0b8; font-size: 1rem; margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .cta-phone { color: var(--gold); font-size: 1.3rem; font-weight: 600; font-family: 'Cormorant Garamond', serif; letter-spacing: 1px; text-decoration: none; margin-top: 24px; display: block; }
+    .cta-phone:hover { color: var(--gold2); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060e1a;
+      color: #4a5e74;
+      padding: 48px 40px 24px;
+    }
+    .footer-grid { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    @media(max-width:800px){ .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:500px){ .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand .logo { font-size: 1.5rem; }
+    .footer-brand p { font-size: 0.82rem; margin-top: 12px; line-height: 1.7; max-width: 280px; }
+    .footer-col h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px; color: #6a7e94; margin-bottom: 14px; font-weight: 600; }
+    .footer-col a { display: block; color: #4a5e74; text-decoration: none; font-size: 0.83rem; margin-bottom: 8px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold2); }
+    .footer-bottom { max-width: 1160px; margin: 24px auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.78rem; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: none; } }
+    .anim { opacity: 0; animation: fadeUp 0.7s ease both; }
+
+    /* ── PHONE CTA FLOAT ── */
+    .phone-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 300;
+      background: var(--gold);
+      color: var(--navy);
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 20px rgba(200,146,42,0.5);
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .phone-float:hover { transform: scale(1.08); }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  ⚡ We respond within 24 hours — call or text now: <a href="tel:+15714448780">+1 (571) 444-8780</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">
+    DLCR<span style="color:#4a6a8a;font-weight:300">hv</span>
+    <span class="logo-sub">Home Value · Virginia</span>
+  </a>
+  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="#cities">Cities</a>
+    <a href="#how">How It Works</a>
+    <a href="#why">Why DLCR</a>
+    <a href="/es/" style="color:#c8922a">Español</a>
+    <a href="#hero-form" class="nav-cta">Get My Offer</a>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="home">
+  <div class="hero-bg-text">HV</div>
+  <div class="hero-grid">
+    <!-- Left -->
+    <div>
+      <p class="hero-eyebrow anim" style="animation-delay:0s">Northern Virginia · Real Estate</p>
+      <h1 class="anim" style="animation-delay:0.1s">
+        Know Your <span class="accent">Home's True Value.</span><br>
+        Sell On Your Terms.
+      </h1>
+      <p class="hero-desc anim" style="animation-delay:0.2s">
+        Free home valuations and fast cash offers in Warrenton, Manassas, Haymarket, Gainesville & beyond. No repairs. No fees. Just results.
+      </p>
+      <div class="hero-btns anim" style="animation-delay:0.3s">
+        <a href="#hero-form" class="btn-primary">🏡 Get My Free Offer</a>
+        <a href="tel:+15714448780" class="btn-ghost">📞 (571) 444-8780</a>
+      </div>
+    </div>
+
+    <!-- Right: Form Card -->
+    <div id="hero-form" class="hero-card anim" style="animation-delay:0.4s">
+      <div class="hero-card-tabs">
+        <button class="tab-btn active" onclick="switchTab('sell', this)">💰 Sell My Home</button>
+        <button class="tab-btn" onclick="switchTab('value', this)">📊 Home Value</button>
+      </div>
+      <div class="hero-card-body">
+
+        <!-- SELL TAB -->
+        <div class="tab-panel active" id="tab-sell">
+          <form id="form-sell">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="tel" name="phone" placeholder="+1 (555) 000-0000" required>
+            </div>
+            <div class="form-group">
+              <label>City</label>
+              <select name="city">
+                <option value="">Select city...</option>
+                <option>Warrenton, VA</option>
+                <option>Haymarket, VA</option>
+                <option>Gainesville, VA</option>
+                <option>Manassas, VA</option>
+                <option>Bristow, VA</option>
+                <option>Catlett, VA</option>
+                <option>Bull Run, VA</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>When Do You Want to Sell?</label>
+              <select name="timeline">
+                <option value="">Select...</option>
+                <option value="ASAP">As soon as possible</option>
+                <option value="1-3mo">1–3 months</option>
+                <option value="3-6mo">3–6 months</option>
+                <option value="exploring">Just exploring</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-submit" id="btn-sell">🚀 Get My Cash Offer</button>
+            <p class="form-note">🔒 100% free · No obligation · No spam</p>
+          </form>
+          <div id="succ-sell" class="success-msg">✅ We got your request! A DLCR agent will call you within 24 hours. Check your phone for a confirmation text from Jarvis.</div>
+          <div id="err-sell" class="error-msg"></div>
+        </div>
+
+        <!-- VALUE TAB -->
+        <div class="tab-panel" id="tab-value">
+          <form id="form-value">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="tel" name="phone" placeholder="+1 (555) 000-0000" required>
+            </div>
+            <div class="form-group">
+              <label>Property Address</label>
+              <input type="text" name="address" placeholder="123 Main St, Warrenton, VA">
+            </div>
+            <div class="form-group">
+              <label>Estimated Value Range</label>
+              <select name="value">
+                <option value="">Select range...</option>
+                <option>$200k – $350k</option>
+                <option>$350k – $500k</option>
+                <option>$500k – $750k</option>
+                <option>$750k+</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-submit" id="btn-value">📊 Get My Home Value</button>
+            <p class="form-note">🔒 100% free · No obligation · No spam</p>
+          </form>
+          <div id="succ-value" class="success-msg">✅ We got your request! A DLCR agent will contact you within 24 hours with your free home value report.</div>
+          <div id="err-value" class="error-msg"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item"><span class="trust-icon">⚡</span> 24h Response</div>
+  <div class="trust-item"><span class="trust-icon">💰</span> No Commissions</div>
+  <div class="trust-item"><span class="trust-icon">🔧</span> As-Is Sales</div>
+  <div class="trust-item"><span class="trust-icon">📍</span> Local VA Experts</div>
+  <div class="trust-item"><span class="trust-icon">🇲🇽</span> Se Habla Español</div>
+</div>
+
+<!-- ═══════ CITIES ═══════ -->
+<section class="section cities" id="cities">
+  <div class="section-inner">
+    <div class="cities-header">
+      <p class="section-eyebrow">Service Areas</p>
+      <h2 class="section-title">Every City. Every Zip Code.</h2>
+      <p class="section-subtitle">Click your city to go directly to the page for your area — in English or Spanish.</p>
+    </div>
+    <div class="cities-grid">
+
+      <div class="city-card">
+        <div class="city-name">Warrenton</div>
+        <div class="city-county">Fauquier County · 20186</div>
+        <div class="city-links">
+          <a href="/sell-my-home-in-warrenton/" class="city-link sell">Sell My Home</a>
+          <a href="/home-value-in-warrenton/" class="city-link value">Home Value</a>
+          <a href="/es/vender-mi-casa-en-warrenton/" class="city-link es">🇲🇽 Español</a>
+        </div>
+      </div>
+
+      <div class="city-card">
+        <div class="city-name">Haymarket</div>
+        <div class="city-county">Prince William County · 20169</div>
+        <div class="city-links">
+          <a href="/sell-my-home-in-haymarket/" class="city-link sell">Sell My Home</a>
+          <a href="/home-value-in-haymarket/" class="city-link value">Home Value</a>
+          <a href="/es/vender-mi-casa-en-haymarket/" class="city-link es">🇲🇽 Español</a>
+        </div>
+      </div>
+
+      <div class="city-card">
+        <div class="city-name">Gainesville</div>
+        <div class="city-county">Prince William County · 20155</div>
+        <div class="city-links">
+          <a href="/sell-my-home-in-gainesville/" class="city-link sell">Sell My Home</a>
+          <a href="/home-value-in-gainesville/" class="city-link value">Home Value</a>
+          <a href="/es/vender-mi-casa-en-gainesville/" class="city-link es">🇲🇽 Español</a>
+        </div>
+      </div>
+
+      <div class="city-card">
+        <div class="city-name">Manassas</div>
+        <div class="city-county">Prince William County · 20110</div>
+        <div class="city-links">
+          <a href="/sell-my-home-in-manassas/" class="city-link sell">Sell My Home</a>
+          <a href="/home-value-in-manassas/" class="city-link value">Home Value</a>
+          <a href="/es/vender-mi-casa-en-manassas/" class="city-link es">🇲🇽 Español</a>
+        </div>
+      </div>
+
+      <div class="city-card">
+        <div class="city-name">Bristow</div>
+        <div class="city-county">Prince William County · 20136</div>
+        <div class="city-links">
+          <a href="/sell-my-home-in-bristow/" class="city-link sell">Sell My Home</a>
+          <a href="/home-value-in-bristow/" class="city-link value">Home Value</a>
+          <a href="/es/vender-mi-casa-en-bristow/" class="city-link es">🇲🇽 Español</a>
+        </div>
+      </div>
+
+      <div class="city-card">
+        <div class="city-name">Catlett</div>
+        <div class="city-county">Fauquier County · 20119</div>
+        <div class="city-links">
+          <a href="/sell-my-home-in-catlett/" class="city-link sell">Sell My Home</a>
+          <a href="/home-value-in-catlett/" class="city-link value">Home Value</a>
+          <a href="/es/vender-mi-casa-en-catlett/" class="city-link es">🇲🇽 Español</a>
+        </div>
+      </div>
+
+      <div class="city-card">
+        <div class="city-name">Bull Run</div>
+        <div class="city-county">Prince William County · 20136</div>
+        <div class="city-links">
+          <a href="/sell-my-home-in-bull-run/" class="city-link sell">Sell My Home</a>
+          <a href="/home-value-in-bull-run/" class="city-link value">Home Value</a>
+          <a href="/es/vender-mi-casa-en-bull-run/" class="city-link es">🇲🇽 Español</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ HOW IT WORKS ═══════ -->
+<section class="section" id="how">
+  <div class="section-inner">
+    <p class="section-eyebrow">The Process</p>
+    <h2 class="section-title">Simple. Fast. Transparent.</h2>
+    <p class="section-subtitle">Whether you're selling or just checking your home's value, we keep it simple.</p>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="step-num">01</div>
+        <h3>Submit Your Info</h3>
+        <p>Fill out our quick form. Our AI assistant Jarvis immediately notifies the DLCR team via SMS so someone can reach you fast.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">02</div>
+        <h3>We Analyze & Respond</h3>
+        <p>A local DLCR agent reviews your property, pulls comparable sales in your city, and prepares a fair market analysis or cash offer within 24 hours.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">03</div>
+        <h3>You Decide — No Pressure</h3>
+        <p>Everything is free and no-obligation. If you want to sell, we move fast. If you just want data, you've got it. Simple as that.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHY DLCR ═══════ -->
+<section class="section why-section" id="why">
+  <div class="section-inner">
+    <p class="section-eyebrow">Why Choose Us</p>
+    <h2 class="section-title">Local Expertise. Real Results.</h2>
+    <div class="why-grid">
+      <ul class="why-list">
+        <li>
+          <div class="why-icon">⚡</div>
+          <div>
+            <h4>Speed That Matters</h4>
+            <p>We respond within 24 hours — not days. Our team is always available for Northern Virginia homeowners.</p>
+          </div>
+        </li>
+        <li>
+          <div class="why-icon">💰</div>
+          <div>
+            <h4>Zero Fees, Zero Commissions</h4>
+            <p>No agent commissions. No hidden closing fees. What we offer is what you get.</p>
+          </div>
+        </li>
+        <li>
+          <div class="why-icon">🏠</div>
+          <div>
+            <h4>Buy As-Is</h4>
+            <p>We purchase homes in any condition. No repairs, no staging, no open houses.</p>
+          </div>
+        </li>
+        <li>
+          <div class="why-icon">🇲🇽</div>
+          <div>
+            <h4>Bilingual Team</h4>
+            <p>We serve both English and Spanish-speaking families across Northern Virginia. Hablamos tu idioma.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="why-stat-box">
+        <div class="stat">
+          <div class="stat-num">24h</div>
+          <div class="stat-label">Average response time</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">$0</div>
+          <div class="stat-label">Fees or commissions</div>
+        </div>
+        <hr class="stat-divider">
+        <div class="stat">
+          <div class="stat-num">7+</div>
+          <div class="stat-label">Cities served in VA</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Languages: EN + ES</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TESTIMONIALS ═══════ -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Client Stories</p>
+    <h2 class="section-title">What Homeowners Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>The process was unbelievably smooth. I submitted the form on a Monday and had a cash offer by Tuesday morning. No repairs, no showings — just done.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">MR</div>
+          <div>
+            <div class="author-name">Maria R.</div>
+            <div class="author-city">Warrenton, VA</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>Me comunicaba en español y el equipo siempre respondió rápido. Vendí mi casa en Manassas sin pagar comisiones. Lo recomiendo a toda mi familia.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">JL</div>
+          <div>
+            <div class="author-name">José L.</div>
+            <div class="author-city">Manassas, VA</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>I just wanted to know what my Haymarket home was worth. DLCR gave me a detailed market report within 24 hours — for free. Ended up listing with them too.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">KT</div>
+          <div>
+            <div class="author-name">Kevin T.</div>
+            <div class="author-city">Haymarket, VA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGE BANNER -->
+<div class="lang-banner">
+  <p>🇲🇽 ¿Hablas Español? Tenemos páginas en español para todas las ciudades.</p>
+  <a href="/es/">Ver en Español →</a>
+</div>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="cta-section">
+  <h2>Ready to Know Your <br>Home's True Value?</h2>
+  <p>Get a free, no-obligation home value report or cash offer — from local Northern Virginia experts.</p>
+  <div class="cta-btns">
+    <a href="#hero-form" class="btn-primary">🏡 Start Now — It's Free</a>
+  </div>
+  <a href="tel:+15714448780" class="cta-phone">📞 (571) 444-8780</a>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="logo" style="font-size:1.4rem">DLCR<span style="color:#3a5a78;font-weight:300">hv</span></a>
+      <p>DLCR Real Estate & Loans serves Northern Virginia homeowners looking to sell fast, refinance, or simply understand their home's value. Bilingual. Local. Trusted.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Sell My Home</h4>
+      <a href="/sell-my-home-in-warrenton/">Warrenton</a>
+      <a href="/sell-my-home-in-haymarket/">Haymarket</a>
+      <a href="/sell-my-home-in-gainesville/">Gainesville</a>
+      <a href="/sell-my-home-in-manassas/">Manassas</a>
+      <a href="/sell-my-home-in-bristow/">Bristow</a>
+    </div>
+    <div class="footer-col">
+      <h4>Home Value</h4>
+      <a href="/home-value-in-warrenton/">Warrenton</a>
+      <a href="/home-value-in-haymarket/">Haymarket</a>
+      <a href="/home-value-in-gainesville/">Gainesville</a>
+      <a href="/home-value-in-manassas/">Manassas</a>
+      <a href="/home-value-in-catlett/">Catlett</a>
+    </div>
+    <div class="footer-col">
+      <h4>Español</h4>
+      <a href="/es/vender-mi-casa-en-warrenton/">Warrenton</a>
+      <a href="/es/vender-mi-casa-en-haymarket/">Haymarket</a>
+      <a href="/es/vender-mi-casa-en-manassas/">Manassas</a>
+      <a href="/es/valor-de-mi-casa-en-gainesville/">Gainesville</a>
+      <a href="/es/">Ver todo →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 DLCR Real Estate & Loans · dlcrhv.com · +1 (571) 444-8780</span>
+    <span>Serving: Warrenton · Manassas · Haymarket · Gainesville · Bristow · Catlett · Bull Run</span>
+  </div>
+</footer>
+
+<!-- PHONE FLOAT -->
+<a href="tel:+15714448780" class="phone-float" title="Call DLCR">📞</a>
+
+<script>
+  const JARVIS_SMS = 'https://dlcr.replit.app/api/sms/send';
+  const DLCR_PHONE = '+15714448780';
+
+  // Tab switching
+  function switchTab(type, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + type).classList.add('active');
+  }
+
+  // Generic form handler
+  async function handleForm(formId, btnId, succId, errId, type) {
+    const form = document.getElementById(formId);
+    const btn  = document.getElementById(btnId);
+    const succ = document.getElementById(succId);
+    const err  = document.getElementById(errId);
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      err.style.display = 'none';
+
+      const data = Object.fromEntries(new FormData(this));
+      const body = [
+        `🏡 NEW LEAD — ${type.toUpperCase()} — dlcrhv.com`,
+        `Name: ${data.name}`,
+        `Phone: ${data.phone}`,
+        `City: ${data.city || data.address || 'N/A'}`,
+        type === 'SELL'
+          ? `Timeline: ${data.timeline || 'N/A'}`
+          : `Est. Value: ${data.value || 'N/A'}`,
+        `Source: Homepage`
+      ].join('\n');
+
+      try {
+        const res = await fetch(JARVIS_SMS, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ to: DLCR_PHONE, body })
+        });
+        if (res.ok) {
+          succ.style.display = 'block';
+          form.style.display = 'none';
+        } else throw new Error();
+      } catch {
+        err.style.display = 'block';
+        err.textContent = 'Error sending. Please call us: +1 (571) 444-8780';
+        btn.disabled = false;
+        btn.textContent = type === 'SELL' ? '🚀 Get My Cash Offer' : '📊 Get My Home Value';
+      }
+    });
+  }
+
+  handleForm('form-sell',  'btn-sell',  'succ-sell',  'err-sell',  'SELL');
+  handleForm('form-value', 'btn-value', 'succ-value', 'err-value', 'VALUE');
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  // Intersection observer for city cards
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.style.opacity = '1'; });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.city-card').forEach(c => {
+    c.style.opacity = '0';
+    c.style.transition = 'opacity 0.5s ease';
+    io.observe(c);
+  });
+</script>
+</body>
+</html>
