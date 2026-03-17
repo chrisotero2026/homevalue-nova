@@ -16,7 +16,7 @@ html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
 .topbar{background:var(--gold);color:var(--navy);text-align:center;padding:8px 20px;font-size:.78rem;font-weight:600;}
 .topbar a{color:var(--navy);}
-nav{background:var(--navy);display:flex;justify-content:space-between;align-items:center;padding:0 40px;height:68px;position:sticky;top:0;z-index:200;}
+nav{background:#0a0a0a;display:flex;justify-content:space-between;align-items:center;padding:0 40px;height:76px;position:sticky;top:0;z-index:200;border-bottom:1px solid rgba(200,146,42,.2);}
 .logo{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--gold2);text-decoration:none;line-height:1;}
 .logo small{display:block;font-family:'DM Sans',sans-serif;font-size:.6rem;color:#7a8fa8;letter-spacing:3px;text-transform:uppercase;}
 .nav-r{display:flex;gap:8px;align-items:center;}
@@ -26,7 +26,7 @@ nav{background:var(--navy);display:flex;justify-content:space-between;align-item
 .nav-lang{border:1px solid rgba(200,146,42,.4)!important;color:var(--gold2)!important;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.6;transform:scale(1.3);}}
 .dot{width:7px;height:7px;border-radius:50%;background:#4ade80;display:inline-block;margin-right:4px;animation:pulse 2s infinite;}
-.hero{min-height:88vh;display:flex;align-items:center;background:linear-gradient(160deg,var(--navy) 0%,#1a2e50 55%,#0e1e38 100%);position:relative;overflow:hidden;padding:60px 40px;}
+.hero{min-height:88vh;display:flex;align-items:center;background:linear-gradient(160deg,#0a0a0a 0%,#111108 40%,#0d0f0a 100%);position:relative;overflow:hidden;padding:60px 40px;}
 .hero-bg{position:absolute;bottom:-40px;right:-20px;font-family:'Cormorant Garamond',serif;font-size:28vw;font-weight:700;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none;}
 .hero-grid{max-width:1160px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 460px;gap:60px;align-items:center;position:relative;}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
@@ -88,7 +88,7 @@ h1 .acc{color:var(--gold2);}
 .broker-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
 .bbadge{background:rgba(200,146,42,.15);color:var(--gold2);border:1px solid rgba(200,146,42,.3);border-radius:3px;padding:4px 12px;font-size:.72rem;font-weight:600;letter-spacing:.5px;}
 /* ANDREA SECTION */
-.asec{background:var(--navy);padding:72px 40px;}
+.asec{background:#0a0a0a;padding:72px 40px;border-top:1px solid rgba(200,146,42,.1);}
 .ain{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
 @media(max-width:800px){.ain{grid-template-columns:1fr;}}
 .asec .sec-h2{color:var(--white);}
@@ -115,7 +115,7 @@ h1 .acc{color:var(--gold2);}
 .ch-send{background:var(--gold);border:none;color:var(--navy);padding:9px 14px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.8rem;}
 .ch-send:hover{background:var(--gold2);}
 /* CITIES */
-.csec{background:var(--navy);padding:80px 40px;}
+.csec{background:#111108;padding:80px 40px;}
 .cin{max-width:1160px;margin:0 auto;}
 .cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:2px;margin-top:44px;}
 .ccard{background:rgba(255,255,255,.04);padding:24px;transition:background .2s;position:relative;overflow:hidden;}
@@ -145,12 +145,12 @@ h1 .acc{color:var(--gold2);}
 .hs h3{font-size:1rem;font-weight:600;margin-bottom:8px;color:var(--navy);}
 .hs p{color:var(--muted);font-size:.88rem;line-height:1.6;}
 /* CTA */
-.ctasec{background:var(--navy);text-align:center;padding:80px 40px;}
+.ctasec{background:#0a0a0a;text-align:center;padding:80px 40px;border-top:1px solid rgba(200,146,42,.1);}
 .ctasec h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--white);margin-bottom:14px;}
 .ctasec p{color:#8da0b8;font-size:.97rem;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;}
 .cta-ph{color:var(--gold);font-size:1.2rem;font-weight:600;letter-spacing:1px;text-decoration:none;margin-top:22px;display:block;}
 /* FOOTER */
-footer{background:#060e1a;color:#4a5e74;padding:48px 40px 24px;}
+footer{background:#0a0a0a;color:#4a5e74;padding:48px 40px 24px;border-top:1px solid rgba(200,146,42,.15);}
 .fgrid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.04);}
 @media(max-width:800px){.fgrid{grid-template-columns:1fr 1fr;}}
 .fcol h4{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:#6a7e94;margin-bottom:12px;font-weight:600;}
@@ -196,7 +196,7 @@ footer{background:#060e1a;color:#4a5e74;padding:48px 40px 24px;}
 <div class="topbar" id="tb-es" style="display:none">⚡ Andrea AI disponible 24/7 — llama o escribe a De Las Casas Realty: <a href="tel:+15714448780">+1 (571) 444-8780</a></div>
 
 <nav>
-  <a href="/" class="logo"><img src="/logo.png" alt="DLCR Homes" style="height:44px;width:auto;display:block;"></a>
+  <a href="/" class="logo"><img src="/logo.png" alt="DLCR Homes" style="height:60px;width:auto;display:block;"></a>
   <div class="nav-r">
     <a href="#cities" id="n-cit">Cities</a>
     <a href="#how" id="n-how">How It Works</a>
