@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -617,5 +617,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.style.opacity='1';});},{threshold:.1});
 document.querySelectorAll('.ccard').forEach(c=>{c.style.opacity='0';c.style.transition='opacity .5s ease';io.observe(c);});
 </script>
-</body>
+<script src="/dlcr-crm.js"></script></body>
 </html>
+
